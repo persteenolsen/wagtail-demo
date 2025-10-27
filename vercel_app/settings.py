@@ -219,7 +219,7 @@ STATICFILES_DIRS = [
 ]
 
 # Wagtail
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/original_images')
 MEDIA_URL = '/media/'
 
 # Wagtail
