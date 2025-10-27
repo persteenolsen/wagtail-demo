@@ -225,6 +225,16 @@ MEDIA_URL = '/media/'
 # Wagtail
 DATA_UPLOAD_MAX_NUMBER_FIELDS = 10_000
 
+# Wagtail - Test
+STORAGES = {
+    "default": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
+    },
+}
+
 # Wagtail
 WAGTAIL_SITE_NAME = 'My Wagtail Site'
 
