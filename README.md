@@ -1,16 +1,16 @@
 
 
-# Python + Django + MariaDB - MySQL + Models + Vercel
+# Python + Django + Wagtail CMS + MySQL + Vercel
 
-This example shows how to use Django 5 on Vercel with Serverless Functions using the [Python Runtime](https://vercel.com/docs/concepts/functions/serverless-functions/runtimes/python).
+This example shows how to use Wagtail CMS which is build of top of Django 5 on Vercel with Serverless Functions using the [Python Runtime](https://vercel.com/docs/concepts/functions/serverless-functions/runtimes/python).
 
-Last updated: 16-10-2025
+Last updated: 27-10-2025
 
 Node version selected at Vercel Cloud: 22
 
 ## Demo at Vercel
 
-https://django-starter-four.vercel.app/
+https://wagtail-demo.vercel.app/
 
 ## Installing
 
@@ -40,21 +40,19 @@ https://django-starter-four.vercel.app/
 
 - (.venv) python manage.py runserver
 
-When starting the Django Website from the Vertual Enviroment (.venv) you will notice that Django 5.1.11 will start. Otherwise you can use the Global Django if you have one installed by running:
+When starting the Django Website from the Vertual Enviroment (.venv) you will notice that Django 5.2 and Wagtail 7.0 will be in use. Otherwise you can use the Global Django and Wagtail if you have one installed by running:
 
 - python manage.py runserver
 
-There is no Administration Backend and no Database for this Starter serving Statis files
-
 ## How it Works
 
-Our Django application, `example` is configured as an installed application in `vercel_app/settings.py`:
+The Wagtail and Django application, `home` is configured as an installed application in `vercel_app/settings.py`:
 
 ```bash
 # vercel_app/settings.py
 INSTALLED_APPS = [
     # ...
-    'example',
+    'home',
 ]
 ```
 
@@ -79,28 +77,14 @@ The corresponding `WSGI_APPLICATION` setting is configured to use the `app` vari
 WSGI_APPLICATION = 'vercel_app.wsgi.app'
 ```
 
-This Django example uses the Web Server Gateway Interface (WSGI) with Django to enable handling requests on Vercel with Serverless Functions.
+This Wagtail and Django example uses the Web Server Gateway Interface (WSGI) with Django to enable handling requests on Vercel with Serverless Functions.
 
 ## Routing 
 
-There are severals views in `example/views.py` which load HTML Django Templates `templates`:
+There are severals views in `home` which load HTML Django Templates `templates`:
 
-The views are exposed a URL through `example/urls.py`:
+The views are exposed a URL through `urls.py`:
 
-```bash
-# example/urls.py
-from django.urls import path
-
-from example.views import index
-from example.views import about
-from example.views import me
-
-urlpatterns = [
-    path('', index),
-    path('about', about),
-    path('me', me),
-]
-```
 Finally, it's made accessible to the Django server inside `vercel_app/urls.py`:
 
 ```bash
@@ -109,17 +93,15 @@ from django.urls import path, include
 
 urlpatterns = [
     ...
-    path('', include('example.urls')),
+    path('', include('home.urls')),
 ]
 ```
 
 ## Templates
 
-To use templates create the dir 'templates' at root level and put the HTML files there
+To use build in templates like base.html create the dir 'templates' at root level and put the HTML files there
 
-There is only one Django App in the Project and the dir 'templates' can be at root level
-
-Tell Django where to look for Templates by `example/settings.py`:
+Tell Django where to look for Templates by `settings.py`:
 
 Find the section TEMPLATES = [] and add the dir of the Templates
 
@@ -166,8 +148,6 @@ Find the section DATABASES = {} and add support for SQLite and comment out the M
 
 ## Static files for the Frontend
 
-There is only one Django App in the Project and the dir 'static' and 'assets' can be created at root level
-
 Make sure that the Python package 'whitenoise' is installed from the requirements.txt
 
 Note: Make sure you have the line 'whitenoise.middleware.WhiteNoiseMiddleware' in the 
@@ -192,9 +172,7 @@ The files in the dir 'asset' will be copied to the dir 'static' after running
 python manage.py collectstatic
 ```
 
-Note: The above command may not be needed as this Starter dont have a Django Admin backend
-
-## Check that Django is serving static files by URL
+## Check that Wagtail and Django is serving static files by URL
 
 Type the URL in your Browser after deployment to Vercel
 
@@ -236,24 +214,16 @@ Make a commit to your GitHub and your Django will build and deploy
 
 ## Models
 
-Add the simple Model "Post" to be administrated by the Admin Backend and displayed by the Frontend.
+Add the simple Model "Home" to be administrated by the Admin Backend and displayed by the Frontend.
 
-- Create a file `example/models.py` with your new Model Post
+- Create a file `home/models.py` with your new Model Home
 
-- Make a regitration of your Model in `example/admin.py`
-
-- Create the View for handling the Posts `example/views.py`
-
-- Add the view / template blog in `example/urls.py`
-
-- Create a Template for display the Posts `templates/blog.html`
-
-- Create a folder with the path: `example/migrations` and run the command:
+- Run the command:
 
 ```bash
 python manage.py makemigrations example
 ```
-Note: It is important to add the name of the app in the command `example` !!!
+Note: It is important to add the name of the app in the command `home` !!!
 
 This command will create a file for the migration of the Model to a Table in the MySQL DB
 
@@ -262,6 +232,6 @@ This command will create a file for the migration of the Model to a Table in the
 ```bash
 python manage.py migrate
 ```
-This will create the Table Post in the DB and you are now ready for administrate the Posts by the Django Admin Backend
+This will create the Home in the DB and you are now ready for administrate the Home Page by the Wagtail Admin Backend
 
-Happy use of Django :-)
+Happy use of Django with Wagtail CMS :-)
