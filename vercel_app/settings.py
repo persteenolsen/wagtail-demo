@@ -83,9 +83,9 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     
-     # For serving all kind of static files in a correct way use Debug = False
-     # This setting is neeeded for serving static files frontend and backend admin
-     "whitenoise.middleware.WhiteNoiseMiddleware",
+    # For serving all kind of static files in a correct way use Debug = False
+    # This setting is neeeded for serving static files frontend and backend admin
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -222,13 +222,15 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR/'media'
 
 # Cloudinary
+# For handeling the media files by Django + Wagtail
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Cloudinary
-'''STORAGES = {
+# For handeling the media files by Django + Wagtail
+STORAGES = {
     'default': {"BACKEND":'cloudinary_storage.storage.MediaCloudinaryStorage' },
      "staticfiles": { "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage", }, 
-     }'''
+     }
 
 # Wagtail
 DATA_UPLOAD_MAX_NUMBER_FIELDS = 10_000
