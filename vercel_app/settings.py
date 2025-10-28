@@ -246,10 +246,16 @@ WAGTAIL_SITE_NAME = 'My Wagtail Site'
 WAGTAILADMIN_BASE_URL = 'https://wagtail-demo.vercel.app'
 
 # Cloudinary
+
+CLOUD_NAME=os.getenv('CLOUD_NAME')
+API_KEY=os.getenv('API_KEY')
+API_SECRET=os.getenv('API_SECRET')
+
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'your_cloud_name',
-    'API_KEY': 'your_api_key',
-    'API_SECRET': 'your_api_secret'
+
+    'CLOUD_NAME': CLOUD_NAME,
+    'API_KEY': API_KEY,
+    'API_SECRET': API_SECRET
 }
 
 # Search
