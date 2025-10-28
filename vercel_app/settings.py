@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 
-# 05-09-2025 - loading variables for Django Secret Key + MySQL info
+# 28-10-2025 - loading variables for Django Secret Key + MySQL info
 import os
 from dotenv import load_dotenv
 load_dotenv()
@@ -24,10 +24,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-=cldztbc4jg&xl0!x673!*v2_=p$$eu)=7*f#d0#zs$44xx-h^'
-# 05-09-2025 - The above secret key was rotated and no longer valid !
+# SECRET_KEY = 'django-insecure-=cldztbc4jg&xl0!x673!*v2_=p$$eu)=7*f#d0#zs$44xx-h^'
+# 28-10-2025 - The above secret key was rotated and no longer valid !
 # Getting the secret key from env locally and from enviroment variable in production
-#SECRET_KEY=os.getenv('SECRET_KEY')
+SECRET_KEY=os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
@@ -59,7 +59,6 @@ INSTALLED_APPS = [
     #'example',
 
     # Wagtail
-
     'home',
 
     # 26-10-2025 - Not working
@@ -101,14 +100,10 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'vercel_app.urls'
 
-# Not in use
-# PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
          
-         # Added the URL for work with templates
          # Initially create the dir 'templates' at root level
          # Root level is fine because there is only one Django App in the Project
          # 'DIRS': [],
@@ -195,20 +190,12 @@ USE_TZ = True
 
 # Settings for serving all kind of static files for Backend Admin and Frontend:
 # Debug = False
-# There are only one Django App in the Project and the dir 'static' and 'assets' are at root level
-# Note: Initially create the dir 'static' with your static files a run the command:
-# "python manage.py collectstatic" and make a commit to GitHub for be ready for Dev + Prod
-# Where Django looks for static files
 STATIC_URL = 'static/'
 
 # Where you put your static files ( The dir static needs to match the above static )
 STATIC_ROOT = BASE_DIR/'static' 
 
 # Additional directory from which to load static files if wanted
-# Note: Create a root level dir 'assets' locally with your additional static files and run: 
-# "python manage.py collectstatic"
-# Now the static files in the 'assets' dir are copied to the 'static' directory  
-# Commit to GitHub for this to work in production ( At Vercel )
 STATICFILES_DIRS = [
    
    # Extra dir put your files 
@@ -253,6 +240,7 @@ CLOUDINARY_STORAGE = {
 }
 
 # Search
+# Not in use at the moment
 # https://docs.wagtail.org/en/stable/topics/search/backends.html
 '''WAGTAILSEARCH_BACKENDS = {
     "default": {

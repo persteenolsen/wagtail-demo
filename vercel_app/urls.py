@@ -14,8 +14,8 @@ urlpatterns = [
 
     #path("search/", search_views.search, name="search"),
 
-   # path('pages/', include(wagtail_urls)),
-   # path('', include(wagtail_urls)),
+    # path('pages/', include(wagtail_urls)),
+    # path('', include(wagtail_urls)),
 
 ]
 
