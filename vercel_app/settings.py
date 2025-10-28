@@ -30,17 +30,20 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY=os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
+# Use for Developement !
 # DEBUG = True
 
 # With DEBUG=False 404 errors will be directed to a default 404 template
 # Not: Django will display a 404.html if you have created one :-)
+# Use for Production !
 DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
-#ALLOWED_HOSTS = ['*']
+
+# Testing all hosts - Developement !
+# ALLOWED_HOSTS = ['*']
 
 # Application definition
-
 INSTALLED_APPS = [
 
     'django.contrib.admin',
@@ -248,8 +251,15 @@ CLOUDINARY_STORAGE = {
     }
 }'''
 
-# Wagtail
-WAGTAILDOCS_EXTENSIONS = ['csv', 'docx', 'key', 'odt', 'pdf', 'pptx', 'rtf', 'txt', 'xlsx', 'zip']
+# Wagtail - Document upload
+# PDF files are allowed by cloudinary
+WAGTAILDOCS_CONTENT_TYPES = {
+    'pdf': 'application/pdf'
+}
+
+# Wagtail - Document upload
+# PDF files are allowed by cloudinary
+WAGTAILDOCS_EXTENSIONS = [ 'pdf' ]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
