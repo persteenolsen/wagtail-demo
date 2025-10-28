@@ -101,7 +101,8 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'vercel_app.urls'
 
-PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# Not in use
+# PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 TEMPLATES = [
     {
@@ -110,10 +111,7 @@ TEMPLATES = [
          # Added the URL for work with templates
          # Initially create the dir 'templates' at root level
          # Root level is fine because there is only one Django App in the Project
-        # 'DIRS': [],
-       # "DIRS": [
-       #     os.path.join(PROJECT_DIR, "templates"),
-       # ],
+         # 'DIRS': [],
         'DIRS': [BASE_DIR / 'templates'],
         
         'APP_DIRS': True,
