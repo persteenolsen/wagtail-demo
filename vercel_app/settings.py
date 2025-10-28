@@ -230,6 +230,12 @@ MEDIA_ROOT = BASE_DIR/'media'
 # Cloudinary
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
+# Cloudinary
+STORAGES = {
+    'default': {"BACKEND":'cloudinary_storage.storage.MediaCloudinaryStorage' },
+     "staticfiles": { "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage", }, 
+     }
+
 # Wagtail
 DATA_UPLOAD_MAX_NUMBER_FIELDS = 10_000
 
