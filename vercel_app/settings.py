@@ -135,7 +135,7 @@ WSGI_APPLICATION = 'vercel_app.wsgi.app'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 # Note: Django modules for using databases are not support in serverless
 # environments like Vercel. You can use a database over HTTP, hosted elsewhere.
-
+# For loval developement only
 '''DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
@@ -143,13 +143,7 @@ WSGI_APPLICATION = 'vercel_app.wsgi.app'
     }
 }'''
 
-'''
-import os
-
-from dotenv import load_dotenv
-
-load_dotenv()'''
-
+# For authentication of the MySQL Database loaded from .env / environment variables at Vercel
 DB_NAME=os.getenv('DB_NAME')
 DB_USER=os.getenv('DB_USER')
 DB_PASSWORD=os.getenv('DB_PASSWORD')
@@ -231,10 +225,10 @@ MEDIA_ROOT = BASE_DIR/'media'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Cloudinary
-STORAGES = {
+'''STORAGES = {
     'default': {"BACKEND":'cloudinary_storage.storage.MediaCloudinaryStorage' },
      "staticfiles": { "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage", }, 
-     }
+     }'''
 
 # Wagtail
 DATA_UPLOAD_MAX_NUMBER_FIELDS = 10_000
@@ -246,7 +240,7 @@ WAGTAIL_SITE_NAME = 'My Wagtail Site'
 WAGTAILADMIN_BASE_URL = 'https://wagtail-demo.vercel.app'
 
 # Cloudinary
-
+# Authentication for cloudinary loaded from .env / environment variables at Vercel
 CLOUD_NAME=os.getenv('CLOUD_NAME')
 API_KEY=os.getenv('API_KEY')
 API_SECRET=os.getenv('API_SECRET')
