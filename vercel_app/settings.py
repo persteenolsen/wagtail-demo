@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-=cldztbc4jg&xl0!x673!*v2_=p$$eu)=7*f#d0#zs$44xx-h^
 #SECRET_KEY=os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = True
+# DEBUG = True
 
 # With DEBUG=False 404 errors will be directed to a default 404 template
 # Not: Django will display a 404.html if you have created one :-)
@@ -219,8 +219,8 @@ STATICFILES_DIRS = [
 ]
 
 # Wagtail
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/original_images')
 MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR/'media'
 
 # Wagtail
 DATA_UPLOAD_MAX_NUMBER_FIELDS = 10_000
@@ -239,7 +239,7 @@ DATA_UPLOAD_MAX_NUMBER_FIELDS = 10_000
 WAGTAIL_SITE_NAME = 'My Wagtail Site'
 
 # Wagtail - Prod
-WAGTAILADMIN_BASE_URL = 'http://example.com'
+WAGTAILADMIN_BASE_URL = 'https://wagtail-demo.vercel.app'
 
 
 # Search
