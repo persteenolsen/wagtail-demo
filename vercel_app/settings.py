@@ -51,6 +51,11 @@ INSTALLED_APPS = [
 
     # For serving static files
     'django.contrib.staticfiles',
+
+    # For saving media files at Cloudinary
+    # Must be below the above line: django.contrib.staticfiles when only use cloudinary for media 
+    'cloudinary_storage',
+    'cloudinary',
     #'example',
 
     # Wagtail
@@ -222,18 +227,11 @@ STATICFILES_DIRS = [
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR/'media'
 
+# Cloudinary
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
 # Wagtail
 DATA_UPLOAD_MAX_NUMBER_FIELDS = 10_000
-
-# Wagtail - Test
-'''STORAGES = {
-    "default": {
-        "BACKEND": "django.core.files.storage.FileSystemStorage",
-    },
-    "staticfiles": {
-        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
-    },
-}'''
 
 # Wagtail
 WAGTAIL_SITE_NAME = 'My Wagtail Site'
@@ -241,6 +239,12 @@ WAGTAIL_SITE_NAME = 'My Wagtail Site'
 # Wagtail - Prod
 WAGTAILADMIN_BASE_URL = 'https://wagtail-demo.vercel.app'
 
+# Cloudinary
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'your_cloud_name',
+    'API_KEY': 'your_api_key',
+    'API_SECRET': 'your_api_secret'
+}
 
 # Search
 # https://docs.wagtail.org/en/stable/topics/search/backends.html
