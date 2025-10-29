@@ -210,13 +210,22 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR/'media'
 
 # Cloudinary
-# For handeling the media files by Django + Wagtail
+# For handeling the media files by Django + Wagtail like jpg + pdf - files
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+# Not working ! - Documents files like pdf - files
+# DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.RawMediaCloudinaryStorage'
 
 # Cloudinary
 # For handeling the media files by Django + Wagtail
 STORAGES = {
-    'default': {"BACKEND":'cloudinary_storage.storage.MediaCloudinaryStorage' },
+
+     # Media files like jpg + pdf files ( can not save document but upload works fine )
+     'default': {"BACKEND":'cloudinary_storage.storage.MediaCloudinaryStorage' },
+      
+      # Not working ! - Documents files like pdf - files
+      # 'default': {"BACKEND":'cloudinary_storage.storage.RawMediaCloudinaryStorage' },
+
      "staticfiles": { "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage", }, 
      }
 
@@ -259,7 +268,9 @@ WAGTAILDOCS_CONTENT_TYPES = {
 
 # Wagtail - Document upload
 # PDF files are allowed by cloudinary
-WAGTAILDOCS_EXTENSIONS = [ 'pdf' ]
+# Note: The extention '' is needed for saving / edit information about the document by Wagtail
+# It may be equal to disable the below code and then allow all extentions which is a security risk
+WAGTAILDOCS_EXTENSIONS = [ 'pdf', '' ]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
