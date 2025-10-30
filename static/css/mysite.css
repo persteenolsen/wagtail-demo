@@ -11,7 +11,7 @@ html {
 body {
     min-height: 100vh;
     max-width: 800px;
-    margin: 0 auto;
+    margin: 5 auto;
     padding: 10px;
     display: grid;
     gap: 3vw;
@@ -23,12 +23,14 @@ a {
 }
 
 footer {
-    border-top: 2px dotted;
+    border-top: 1px dotted;
     text-align: center;
 }
 
 header {
-    border-bottom: 2px dotted;
+   
+    text-align: left;
+    
 }
 
 .template-homepage main {
