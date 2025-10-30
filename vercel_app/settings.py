@@ -64,6 +64,9 @@ INSTALLED_APPS = [
     # Wagtail
     'home',
 
+     # Wagtail
+    'base',
+
     # 26-10-2025 - Not working
     #'search'
     
@@ -81,6 +84,10 @@ INSTALLED_APPS = [
 
     'modelcluster',
     'taggit',
+
+    # Footer across all pages
+    # Add this line to install wagtail.contrib.settings:
+    'wagtail.contrib.settings',
 ]
 
 MIDDLEWARE = [
@@ -119,6 +126,11 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                # Wagtail
+                # Footer across all pages
+                # Add this to register the _settings_ context processor:
+                'wagtail.contrib.settings.context_processors.settings',
             ],
         },
     },
