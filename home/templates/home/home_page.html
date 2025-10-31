@@ -12,8 +12,9 @@
             <div class="col-sm-6 offset-sm-3">
         
         <p><h2>{{ page.title }}</h2></p>
-                
-        <p>{% image page.image fill-480x320 %}</p>
+          
+        {# 31-10-2025 - All images will be displaced with a width=400 #}
+        <p>{% image page.image width-400 %}</p>
        
         <p>{{ page.hero_text }}</p>
         {% if page.hero_cta_link %}
