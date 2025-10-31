@@ -67,8 +67,8 @@ INSTALLED_APPS = [
      # Wagtail
     'base',
     
-    # 31-10-2025 - Search - It works
-    # 26-10-2025 - Not working
+    # 31-10-2025 - Search - It does not works well with MySQL
+    # It works ok with SQLite
     'search',
     
     'wagtail.contrib.forms',
