@@ -66,9 +66,10 @@ INSTALLED_APPS = [
 
      # Wagtail
     'base',
-
+    
+    # 31-10-2025 - Search - It works
     # 26-10-2025 - Not working
-    #'search'
+    'search',
     
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
@@ -88,6 +89,7 @@ INSTALLED_APPS = [
     # Footer across all pages
     # Add this line to install wagtail.contrib.settings:
     'wagtail.contrib.settings',
+    
 ]
 
 MIDDLEWARE = [
@@ -151,6 +153,7 @@ WSGI_APPLICATION = 'vercel_app.wsgi.app'
     }
 }'''
 
+
 # For authentication of the MySQL Database loaded from .env / environment variables at Vercel
 DB_NAME=os.getenv('DB_NAME')
 DB_USER=os.getenv('DB_USER')
@@ -168,6 +171,7 @@ DATABASES = {
         'PORT'    : 3306,
     }
 } 
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -263,14 +267,13 @@ CLOUDINARY_STORAGE = {
     'API_SECRET': API_SECRET
 }
 
-# Search
-# Not in use at the moment
+# 31-10-2025 - Search towards the MySQL
 # https://docs.wagtail.org/en/stable/topics/search/backends.html
-'''WAGTAILSEARCH_BACKENDS = {
+WAGTAILSEARCH_BACKENDS = {
     "default": {
         "BACKEND": "wagtail.search.backends.database",
     }
-}'''
+}
 
 # Wagtail - Document upload
 # PDF files are allowed by cloudinary

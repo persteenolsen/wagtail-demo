@@ -3,30 +3,32 @@
 
 {% block body_class %}template-homepage{% endblock %}
 
-
-
 {% block content %}
-    
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6 offset-sm-3">
-        
-        <p><h2>{{ page.title }}</h2></p>
-          
-        {# 31-10-2025 - All images will be displaced with a width=400 #}
-        <p>{% image page.image width-400 %}</p>
-       
-        <p>{{ page.hero_text }}</p>
-        {% if page.hero_cta_link %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 offset-sm-3">
+
+            <p>
+            <h2>{{ page.title }}</h2>
+            </p>
+
+            {# 31-10-2025 - All images will be displaced with a width=400 #}
+            <p>{% image page.image width-400 %}</p>
+
+            <p>{{ page.hero_text }}</p>
+            {% if page.hero_cta_link %}
             <a href="{% pageurl page.hero_cta_link %}">
                 {% firstof page.hero_cta page.hero_cta_link.title %}
             </a>
-        {% endif %}
-    
+            {% endif %}
 
-  {{ page.body|richtext }}
 
-  
-</div></div></div>
+            {{ page.body|richtext }}
+
+
+        </div>
+    </div>
+</div>
 
 {% endblock content %}
