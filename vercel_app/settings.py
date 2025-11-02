@@ -67,9 +67,9 @@ INSTALLED_APPS = [
      # Wagtail
     'base',
     
-    # 31-10-2025 - Search - It does not works well with MySQL
-    # It works ok with SQLite
-    'search',
+    # 01-11-2025 - Search - It does not works well with MySQL, but it works ok with SQLite
+    # Disabled search
+    # 'search',
     
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
@@ -267,13 +267,14 @@ CLOUDINARY_STORAGE = {
     'API_SECRET': API_SECRET
 }
 
-# 31-10-2025 - Search towards the MySQL
+# 02-11-2025 - Search towards the MySQL does not work, but works fine with SQLite
+# Disabled search
 # https://docs.wagtail.org/en/stable/topics/search/backends.html
-WAGTAILSEARCH_BACKENDS = {
+'''WAGTAILSEARCH_BACKENDS = {
     "default": {
         "BACKEND": "wagtail.search.backends.database",
     }
-}
+}'''
 
 # Wagtail - Document upload
 # PDF files are allowed by cloudinary

@@ -15,8 +15,9 @@ urlpatterns = [
     path("admin/", include(wagtailadmin_urls)),
     path("documents/", include(wagtaildocs_urls)),
 
-    # 31-10-2025 - Search 
-    path("search/", search_views.search, name="search"),
+    # 31-10-2025 - Search - It does not work with MySQL, but works fine with SQLite
+    # Disabled search 
+    # path("search/", search_views.search, name="search"),
 
     # path('pages/', include(wagtail_urls)),
     # path('', include(wagtail_urls)),
