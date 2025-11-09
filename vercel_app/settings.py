@@ -154,7 +154,7 @@ WSGI_APPLICATION = 'vercel_app.wsgi.app'
 }'''
 
 
-# For authentication of the MySQL Database loaded from .env / environment variables at Vercel
+# For authentication of the MariaDB Database loaded from .env / environment variables at Vercel
 DB_NAME=os.getenv('DB_NAME')
 DB_USER=os.getenv('DB_USER')
 DB_PASSWORD=os.getenv('DB_PASSWORD')
@@ -162,6 +162,8 @@ DB_HOST=os.getenv('DB_HOST')
 
 DATABASES = {
     'default': {
+
+        # 09-11-2025 - For connect to both MariaDB and MySQL
         'ENGINE'  : 'django.db.backends.mysql', 
         'NAME'    : DB_NAME,                  
         'USER'    : DB_USER,                    

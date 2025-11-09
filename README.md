@@ -1,10 +1,10 @@
 
 
-# Python + Django + Wagtail CMS + MySQL + Vercel
+# Python + Django + Wagtail CMS + MariaDB + Vercel
 
 This example shows how to use Wagtail CMS which is build of top of Django 5 on Vercel with Serverless Functions using the [Python Runtime](https://vercel.com/docs/concepts/functions/serverless-functions/runtimes/python).
 
-Last updated 02-11-2025
+Last updated 09-11-2025
 
 Node version selected at Vercel Cloud: 22
 
@@ -116,25 +116,25 @@ Your Django application is now available at `http://127.0.0.1:8000/`.
 
 ## The Admin Backend and Databases
 
-The Admin Backend is using a MySQL Database for both Dev + Prod, but is able to use a SQLite for Dev
+The Admin Backend is using a MariaDB Database for both Dev + Prod, but is able to use a SQLite for Dev
 
-To connect to the MySQL install the Python package "pymysql" and the packages from the requirements.txt
+To connect to the MariaDB install the Python package "pymysql" and the packages from the requirements.txt
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Take a look at the files needed for connecting to MySQL: `vercel_app/mysql_setup.py` and 
+Take a look at the files needed for connecting to MariaDB: `vercel_app/mysql_setup.py` and 
 
 `vercel_app/__init__.py`
 
-Create a Super User for the Admin Backend in the MySQL
+Create a Super User for the Admin Backend in the MariaDB
 
 ```bash
 python manage.py createsuperuser
 ```
 
-Make the Migration to the MySQL DB
+Make the Migration to the MariaDB DB
 
 ```bash
 python manage.py makemigrations
@@ -225,7 +225,7 @@ python manage.py makemigrations example
 ```
 Note: It is important to add the name of the app in the command `home` !!!
 
-This command will create a file for the migration of the Model to a Table in the MySQL DB
+This command will create a file for the migration of the Model to a Table in the MariaDB DB
 
 - Now run the command: 
 
