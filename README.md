@@ -4,7 +4,7 @@
 
 This example shows how to use Wagtail CMS which is build of top of Django 5 on Vercel with Serverless Functions using the [Python Runtime](https://vercel.com/docs/concepts/functions/serverless-functions/runtimes/python).
 
-Last updated 09-11-2025
+Last updated 30-11-2025
 
 Node version selected at Vercel Cloud: 22
 
